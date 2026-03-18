@@ -1,17 +1,23 @@
 package main
 
 import (
+	"log"
 	"os"
 	"os/signal"
 	"syscall"
 	"weather-app/routers"
 
 	"github.com/gofiber/fiber/v3/middleware/cors"
+	"github.com/joho/godotenv"
 
 	"github.com/gofiber/fiber/v3"
 )
 
 func main() {
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
 	app := fiber.New()
 	app.Use(cors.New(cors.Config{
 		AllowOrigins: []string{"http://localhost:3001"},

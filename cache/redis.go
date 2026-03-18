@@ -14,14 +14,11 @@ type RedisClient struct {
 
 var globalRedisClient *RedisClient
 
-func NewRedisClient(addr, password string, db int) *RedisClient {
-	rdb := redis.NewClient(&redis.Options{
-		Addr:     addr,
-		Password: password,
-		DB:       db,
-	})
+func NewRedisClient(redisURL string) *RedisClient {
+	opt, _ := redis.ParseURL(redisURL)
+	client := redis.NewClient(opt)
 
-	globalRedisClient = &RedisClient{client: rdb}
+	globalRedisClient = &RedisClient{client: client}
 	return globalRedisClient
 }
 

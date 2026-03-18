@@ -47,12 +47,10 @@ func CloseRedisClient() {
 
 func SetupRoutes(app *fiber.App) {
 	API_KEY := os.Getenv("WEATHER_API_KEY")
-	REDIS_ADDR := os.Getenv("REDIS_ADDR")
-	REDIS_PASSWORD := os.Getenv("REDIS_PASSWORD")
-	REDIS_DB := 0
+	REDIS_URL := os.Getenv("REDIS_URL")
 
 	if redisClient == nil {
-		redisClient = cache.NewRedisClient(REDIS_ADDR, REDIS_PASSWORD, REDIS_DB)
+		redisClient = cache.NewRedisClient(REDIS_URL)
 	}
 
 	weatherRoute := app.Group("/weather")
