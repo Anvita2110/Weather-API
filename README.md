@@ -1,3 +1,6 @@
+<img width="2110" height="845" alt="image" src="https://github.com/user-attachments/assets/954c2b5f-c3bd-4f68-bb49-835ffa5e8343" />
+
+
 # Weather App Backend (Go + Fiber)
 
 Backend API for fetching current weather data from [WeatherAPI](https://www.weatherapi.com/) with **Redis caching**.
