@@ -20,7 +20,7 @@ func main() {
 	}
 	app := fiber.New()
 	app.Use(cors.New(cors.Config{
-		AllowOrigins: []string{"http://localhost:3001"},
+		AllowOrigins: []string{"https://vaayu-weather-app.vercel.app/"},
 		AllowMethods: []string{"GET", "POST", "PUT", "DELETE"},
 		AllowHeaders: []string{"Origin", "Content-Type", "Accept"},
 	}))
